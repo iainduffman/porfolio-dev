@@ -71,7 +71,7 @@ var app = new Vue({
                 imageTwo      : require('../assets/images/product2.png'),
                 productId:1,
 				productDesc:"Header Variable",
-				productBg: "000",
+				productBg: "202020",
 				styleTheme: "light-text"
 				},
 				{
