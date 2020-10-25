@@ -13,11 +13,14 @@
   </li>
 </ul>
     
-  <transition name="moveInUp">
+  <transition name="moveInUp" mode="out-in">
   <router-view/>
   </transition>
   </div>
 </template>
+
+
+
 <script>
 export default {
   name: 'App'
@@ -38,12 +41,10 @@ html, body, .app { height: 100% !important; color: #fff;}
 }
 
 
-
-
 .backgLayer {position: fixed; width: 100%; height: 100%; left: 0px; z-index: -1;}
 
 .backgLayer {
-  animation: fadeIn 1s ease-in-out !important;
+  animation: fadeIn 0.3s ease-in-out !important;
   animation-delay: 0.2s !important;
   animation-fill-mode: forwards !important;
 }
@@ -89,15 +90,14 @@ html, body, .app { height: 100% !important; color: #fff;}
 }
 
 .moveInUp-leave-active{
-  animation: fadeOut .3s ease-in-out;
+  animation: fadeOut 1s ease-in-out;
+  animation-fill-mode: forwards !important;
 }
+
 @keyframes fadeOut{
  0%{
   opacity: 1;
  }
-  50%{
-    opacity: 0.5;
-  }
   100%{
   opacity: 0;
  }

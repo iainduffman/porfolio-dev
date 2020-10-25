@@ -39,10 +39,15 @@ const router = new VueRouter({
 
 
 router.beforeResolve((to, from, next) => {
+
+  NProgress.configure({ parent: '#progressbox' });
   // If this isn't an initial page load.
   if (to.name) {
     // Start the route progress bar.
     NProgress.start()
+    NProgress.configure({ easing: 'ease', speed: 2500 });
+    NProgress.configure({ trickle: false });
+    NProgress.configure({ trickleSpeed: 300 });
   }
   next()
 })

@@ -1,7 +1,9 @@
 <template>
 	<div id="appx" class="details">
 		<div class="container">
+			
 			<div class="row">
+			<div class="slideOver" style="height: 100%;"></div>
 				<div class="col-md-12" v-for="(product,index) in products" :key="index"> 
 					<div v-if="proId == product.productId">
 						<div class="backgLayer" v-bind:style="{backgroundColor: `#${product.productBg}`}"></div>
@@ -25,38 +27,6 @@
 .grey-text-1 h1, .grey-text-1 p  { color: #707070 !important;}
 </style>
 
-
-
-<script>
-export default {
-var app = new Vue({
-  el: '#appx',
-  data: {
-    myclass: 'red',
-    toggled: true,
-  },
-  methods: {
-    toggle: function() {
-      this.toggled = !this.toggled
-    }
-  }
-});}	
-}
-</script>
-<script>
-var app = new Vue({
-  el: '#appx',
-  data: {
-    myclass: 'red',
-    toggled: true,
-  },
-  methods: {
-    toggle: function() {
-      this.toggled = !this.toggled
-    }
-  }
-});}
-</script>
 <script>
 	export default{
 		name:'details',

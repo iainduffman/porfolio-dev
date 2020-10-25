@@ -1,11 +1,14 @@
 <template>
 <transition name="hometrans">
-  <div class="home container h-100">
-    <h1>{{title}}</h1>
+  <div id="homex" class="home container h-100">
+    <h1 @click="$event.target.classList.toggle('blue')">{{title}}</h1>
     <div class="row align-items-center h-100">
       <div class="col-md-4 col-lg4" v-for="(data,index) in products" :key="index">
         <img :src="data.image" class="img-fluid">
-         <h3 @click="goTodetail(data.productId)" >{{data.productTitle}}</h3>
+        <div @click="goTodetail(data.productId); $event.target.classList.toggle('stay')">
+         <h3>{{data.productTitle}}</h3>
+         <div class="slideOver"></div>
+        </div>
       </div>
     </div>
   </div>
@@ -71,9 +74,13 @@ export default {
   cursor:pointer;
 }
 
+.slideOver {width:100%; height: 0px; background: #fff; position: fixed; bottom: 0; left: 0; transition: all 0.4s; z-index: 4;}
+
+.moveInUp-leave-active .slideOver, .moveInUp-leave-to .slideOver, .nprogress-busy .slideOver, .stay .slideOver { height: 100%; animation-fill-mode: forwards !important; transition-timing-function: ease-out;}
+
 .home {position: relative;}
 
-.hometrans-enter-active { animation: homefadeIn 0.3s ease-in-out !important; animation-delay: 2s;}
+.hometrans-enter-active { animation: homefadeIn 0.3s ease-in-out !important; animation-delay: 2s; }
 
 @keyframes homefadeIn{
  0%{
